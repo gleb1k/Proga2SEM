@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.1.32210.238
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Proga2SEM", "Proga2SEM\Proga2SEM.csproj", "{0EC29B1F-41EE-40CE-81B1-FA20C25FDE52}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lesson1", "Lesson1\Lesson1.csproj", "{77073718-BF7F-40C4-AA15-38D8B9D37EE0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Test1Lesson", "Test1Lesson\Test1Lesson.csproj", "{FF13BCB5-26B2-458F-A7CA-8000526C1FE2}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0EC29B1F-41EE-40CE-81B1-FA20C25FDE52}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0EC29B1F-41EE-40CE-81B1-FA20C25FDE52}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0EC29B1F-41EE-40CE-81B1-FA20C25FDE52}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0EC29B1F-41EE-40CE-81B1-FA20C25FDE52}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77073718-BF7F-40C4-AA15-38D8B9D37EE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77073718-BF7F-40C4-AA15-38D8B9D37EE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77073718-BF7F-40C4-AA15-38D8B9D37EE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77073718-BF7F-40C4-AA15-38D8B9D37EE0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FF13BCB5-26B2-458F-A7CA-8000526C1FE2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FF13BCB5-26B2-458F-A7CA-8000526C1FE2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FF13BCB5-26B2-458F-A7CA-8000526C1FE2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FF13BCB5-26B2-458F-A7CA-8000526C1FE2}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1F5EC1D5-5BF8-4288-81EE-B5025465691B}
+	EndGlobalSection
+EndGlobal
