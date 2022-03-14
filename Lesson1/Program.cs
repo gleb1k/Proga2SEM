@@ -1,5 +1,6 @@
 ﻿using System;
 using Lesson1.CustomList;
+using Lesson1.LinQ;
 
 
 namespace Lesson1
@@ -19,9 +20,10 @@ namespace Lesson1
             ////cList.Add(2);
             ////Console.WriteLine(cList.SummaOfAllElements());
 
-            CustomArrayListRunner.Run();
+            //CustomArrayListRunner.Run();
 
             //LinqRunner.Run();
+            LinkTaskRunner.Run();
         }
     }
 }

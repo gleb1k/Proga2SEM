@@ -60,7 +60,7 @@ namespace Lesson1
             public int HealthGroupId { get; set; }
             public string HealthGroupName { get; set; }
         }
-        public void Run()
+        public static void Run()
         {
             var students = new List<Student>
             {
