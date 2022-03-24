@@ -288,36 +288,53 @@ namespace Lesson1.CustomList
         }
         public void SwapTwoElements()
         {
-            if (head == null || head.NextNode == null)
-                return;
-            Node<T> headSwap = new Node<T>(head.NextNode.InfField);
-            headSwap.NextNode = new Node<T>(head.InfField);
-            head = head.NextNode.NextNode;
-            var headSwapCopy = headSwap.NextNode;
-            while (head!=null)
+            //финалочка
+            var tempNode = head.NextNode.NextNode;
+            var headCopy = head;
+            head = head.NextNode;
+            head.NextNode = headCopy;
+            while (tempNode != null && tempNode.NextNode != null)
             {
-                if (head.NextNode != null)
-                {
-                    headSwapCopy.NextNode = new Node<T>(head.NextNode.InfField);
-                    headSwapCopy.NextNode.NextNode = new Node<T>(head.InfField);
-                    head = head.NextNode.NextNode;
-                    headSwapCopy = headSwapCopy.NextNode.NextNode;
-                }
-                else
-                {
-                    headSwapCopy.NextNode = new Node<T>(head.InfField);
-                    head = null;
-                }
-                //попытка работать с ссылками удачно провалилась
-                //var tempCopy = new Node<T>(headCopy.NextNode.InfField) { NextNode = headCopy.NextNode.NextNode };
-                //headCopy.NextNode.NextNode = headCopy;
-                //headCopy.NextNode = tempCopy.NextNode;
-                //if (headCopy.NextNode != null)
-                //{
-                //    headCopy = headCopy.NextNode;
-                //}
+                headCopy.NextNode = tempNode.NextNode;
+                headCopy = tempNode;
+                var tempNext = tempNode.NextNode.NextNode;
+                tempNode.NextNode.NextNode = tempNode;
+                tempNode = tempNext;
             }
-            head = headSwap;
+            headCopy.NextNode = tempNode;
+
+            //Попытка2, через создание нового узла
+            //if (head == null || head.NextNode == null)
+            //    return;
+            //Node<T> headSwap = new Node<T>(head.NextNode.InfField);
+            //headSwap.NextNode = new Node<T>(head.InfField);
+            //head = head.NextNode.NextNode;
+            //var headSwapCopy = headSwap.NextNode;
+            //while (head!=null)
+            //{
+            //    if (head.NextNode != null)
+            //    {
+            //        headSwapCopy.NextNode = new Node<T>(head.NextNode.InfField);
+            //        headSwapCopy.NextNode.NextNode = new Node<T>(head.InfField);
+            //        head = head.NextNode.NextNode;
+            //        headSwapCopy = headSwapCopy.NextNode.NextNode;
+            //    }
+            //    else
+            //    {
+            //        headSwapCopy.NextNode = new Node<T>(head.InfField);
+            //        head = null;
+            //    }   
+            //}
+            //head = headSwap;
+
+            //попытка1
+            //var tempCopy = new Node<T>(headCopy.NextNode.InfField) { NextNode = headCopy.NextNode.NextNode };
+            //headCopy.NextNode.NextNode = headCopy;
+            //headCopy.NextNode = tempCopy.NextNode;
+            //if (headCopy.NextNode != null)
+            //{
+            //    headCopy = headCopy.NextNode;
+            //}
         }
         /// <inheritdoc"/>
         public bool isEmpty()
