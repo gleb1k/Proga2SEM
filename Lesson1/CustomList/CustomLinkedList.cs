@@ -93,10 +93,6 @@ namespace Lesson1.CustomList
 
         }
 
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
 
         public int IndexOf(T elem)
         {
@@ -204,7 +200,13 @@ namespace Lesson1.CustomList
             Console.WriteLine(ToString());
         }
 
-        IEnumerator IEnumerable.GetEnumerator()
+        public IEnumerator<T> GetEnumerator()
+        {
+            return new CustomLinkedListEnumerator<T>(head);
+        }
+
+
+        System.Collections.IEnumerator System.Collections.IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
         }

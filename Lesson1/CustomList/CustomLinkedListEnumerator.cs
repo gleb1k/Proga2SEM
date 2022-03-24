@@ -7,27 +7,25 @@ using System.Threading.Tasks;
 
 namespace Lesson1.CustomList
 {
-    public class CustomListEnumerator<T> : IEnumerator<T> where T : IComparable<T>
+    public class CustomLinkedListEnumerator<T> : IEnumerator<T> where T : IComparable<T>
     {
-        private Node<T> _head;
-        private Node<T> currentNode;
-        public CustomListEnumerator(Node<T> head)
+        private LinkedNode<T> _head;
+        private LinkedNode<T> currentNode;
+        public CustomLinkedListEnumerator(LinkedNode<T> head)
         {
             _head = head;
-            currentNode = new Node<T>(default(T))
+            currentNode = new LinkedNode<T>(default(T))
             {
                 NextNode = head
             };
 
         }
-        public T Current => currentNode.InfField; // Возвращает текущее значение
-        //return currentNode.InfField;
-
+        public T Current => currentNode.InfField;
         object IEnumerator.Current => Current;
 
         public void Dispose()
         {
-
+           
         }
 
         public bool MoveNext()
@@ -43,7 +41,7 @@ namespace Lesson1.CustomList
 
         public void Reset()
         {
-            currentNode = new Node<T>(default(T))
+            currentNode = new LinkedNode<T>(default(T))
             {
                 NextNode = _head
             };
