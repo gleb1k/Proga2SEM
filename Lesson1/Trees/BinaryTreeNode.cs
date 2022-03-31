@@ -11,8 +11,26 @@ namespace Lesson1.Trees
     /// </summary>
     public class BinaryTreeNode<T>
     {
-        T Value;
-        BinaryTreeNode<T> LeftChild;
-        BinaryTreeNode<T> RightChild;
+        public T Value;
+        public int Key;
+        public BinaryTreeNode<T> LeftChild;
+        public BinaryTreeNode<T> RightChild;
+        public BinaryTreeNode<T> Parent;
+
+        public BinaryTreeNode(T value, int key, BinaryTreeNode<T> parent = null)
+        {
+            Value = value;
+            Key = key;
+        }
+
+        public BinaryTreeNode(T value, int key, BinaryTreeNode<T> leftChild,
+                              BinaryTreeNode<T> rightChild, BinaryTreeNode<T> parent = null)
+        {
+            Value = value;
+            Key = key;
+            Parent = parent;
+            RightChild = rightChild;
+            LeftChild = leftChild;
+        }
     }
 }

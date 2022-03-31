@@ -130,8 +130,6 @@ namespace Lesson1.CustomList
             var headCopy = head;
             for (int i = 1; i <= index - 2; i++)
             {
-                if ((headCopy == null) || (headCopy.NextNode == null) || (headCopy.NextNode.NextNode == null))
-                    throw new ArgumentOutOfRangeException("Cписок короче, чем заданная длинна");
                 headCopy = headCopy.NextNode;
             }
             if (headCopy.NextNode.NextNode == null)
@@ -140,7 +138,6 @@ namespace Lesson1.CustomList
             }
             else
                 headCopy.NextNode = headCopy.NextNode.NextNode;
-
         }
         public int Size()
         {
