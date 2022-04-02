@@ -21,6 +21,7 @@ namespace Lesson1.Trees
         {
             Value = value;
             Key = key;
+            Parent = parent;
         }
 
         public BinaryTreeNode(T value, int key, BinaryTreeNode<T> leftChild,

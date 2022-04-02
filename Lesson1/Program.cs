@@ -1,6 +1,7 @@
 ﻿using System;
 using Lesson1.CustomList;
 using Lesson1.LinQ;
+using Lesson1.Trees;
 
 
 namespace Lesson1
@@ -23,7 +24,9 @@ namespace Lesson1
             //CustomArrayListRunner.Run();
 
             //LinqRunner.Run();
-            LinkTaskRunner.Run();
+            //LinkTaskRunner.Run();
+
+            BinarySearchTreeRunner.Run();
         }
     }
 }
