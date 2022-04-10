@@ -21,5 +21,13 @@ namespace Lesson1.Trees
                 Console.WriteLine(current.Value.ToString());
             }
         }
+        public static int GetHeight(BinaryTreeNode<T> root)
+        {
+            if (root == null)
+                return 0;
+            else return 1 + Math.Max(
+                GetHeight(root.LeftChild),
+                GetHeight(root.RightChild));
+        }
     }
 }

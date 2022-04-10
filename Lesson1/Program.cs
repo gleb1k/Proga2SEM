@@ -26,7 +26,7 @@ namespace Lesson1
             //LinqRunner.Run();
             //LinkTaskRunner.Run();
 
-            BinarySearchTreeRunner.Run();
+            TreeRunner.Run();
         }
     }
 }
