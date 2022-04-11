@@ -239,14 +239,14 @@ namespace Lesson1.Trees
             }
             var rootCopy = root;
             bool isFind = false;
-            while (isFind==false)
+            while (isFind == false)
             {
                 if (rootCopy.Key == key)
                 {
                     return true;
-                    
+
                 }
-                 
+
                 if (key < rootCopy.Key)
                 {
                     if (rootCopy.LeftChild == null)
@@ -286,7 +286,7 @@ namespace Lesson1.Trees
             }
             var rootCopy = root;
             bool isFind = false;
-            while (isFind==false)
+            while (isFind == false)
             {
                 if (key < rootCopy.Key)
                 {
@@ -316,12 +316,12 @@ namespace Lesson1.Trees
                         else
                             rootCopy.Parent.RightChild = null;
 
-                        rootCopy.Parent= null; //убираем ссылку от потомка к родителю
+                        rootCopy.Parent = null; //убираем ссылку от потомка к родителю
                     }
                     //нет левого, есть правый наследник
                     if (rootCopy.LeftChild == null && rootCopy.RightChild != null)
                     {
-                        if (rootCopy.Parent.LeftChild.Key == rootCopy.Key) 
+                        if (rootCopy.Parent.LeftChild.Key == rootCopy.Key)
                             rootCopy.Parent.LeftChild = rootCopy.RightChild;
                         else
                             rootCopy.Parent.RightChild = rootCopy.RightChild;
@@ -362,11 +362,130 @@ namespace Lesson1.Trees
                     }
                     isFind = true;
                 }
-                
-            }
-            
-        }
 
+            }
+
+        }
+        /// <summary>
+        /// Удаление элемента
+        /// </summary>
+        /// <param name="value">удаляемое значение</param>
+        public void RemoveRecursion(int key)
+        {
+            if (root == null)
+            {
+                Console.WriteLine("Дерево пусто");
+                return;
+            }
+            Remove(key, root);
+        }
+        private void Remove(int key, BinaryTreeNode<T> root)
+        {
+            if (root == null)
+            {
+                Console.WriteLine($"Элемент {key} в дереве отсутствует");
+                return;
+            }
+            //Проверяем, надо ли искать в левом поддереве
+            if (root.Key > key)
+            {
+                if (root.LeftChild == null)
+                {
+                    Console.WriteLine($"Элемент {key} в дереве отсутствует");
+                    return;
+                }
+                else
+                    Remove(key, root.LeftChild);
+            }
+            else if (root.Key < key)
+            {
+                if (root.RightChild == null)
+                {
+                    Console.WriteLine($"Элемент {key} в дереве отсутствует");
+                    return;
+                }
+                else
+                    Remove(key, root.RightChild);
+            }
+            else //root.Key == key - нашли узел, которы надо удалить
+            {
+                bool? isLeft = root.Parent != null
+                    ? root.Parent.Key > root.Key
+                    : (bool?)null; //нет родительского элемента - не может быть левыйм или правым
+                //Если обоих детей нет, то удаляем текущий узел и 
+                //обнуляем ссылку на него у родительского узла
+                if (root.LeftChild == null && root.RightChild == null)
+                {
+                    if (root.Parent != null) //isLeft.HasValue
+                    {
+                        if (isLeft.Value)
+                            root.Parent.LeftChild = null;
+                        else
+                            root.Parent.RightChild = null;
+                    }
+                    else
+                        this.root = null;
+                }
+                //Если одного из детей нет, то значения полей 
+                //ребёнка m ставим вместо соответствующих значений 
+                //корневого узла, затирая его старые значения, 
+                //и освобождаем память, занимаемую узлом m;
+                else if (root.LeftChild != null && root.RightChild == null)
+                {
+                    //левый потомок есть, правого нет
+                    if (isLeft.HasValue) //имеется родительский элемент
+                    {
+                        if (isLeft.Value)
+                            root.Parent.LeftChild = root.LeftChild;
+                        else
+                            root.Parent.RightChild = root.LeftChild;
+                    }
+                    else
+                        this.root = root.LeftChild;
+                }
+                else if (root.LeftChild == null && root.RightChild != null)
+                {
+                    //правый потомок есть, левого нет
+                    if (isLeft.HasValue)
+                    {
+                        if (isLeft.Value)
+                            root.Parent.LeftChild = root.RightChild;
+                        else
+                            root.Parent.RightChild = root.RightChild;
+                    }
+                    else
+                        this.root = root.RightChild;
+                }
+                //оба потомка имеются
+                else
+                {
+                    //Если левый узел m правого 
+                    //поддерева отсутствует(n->right->left)
+                    if (root.RightChild.LeftChild == null)
+                    {
+                        //Копируем из правого узла в удаляемый поля K, V 
+                        //и ссылку на правый узел правого потомка.
+                        root.Key = root.RightChild.Key;
+                        root.Value = root.RightChild.Value;
+                        root.RightChild = root.RightChild.RightChild;
+                        if (root.RightChild != null)
+                            root.RightChild.Parent = root;
+                    }
+                    else
+                    {
+                        //Возьмём самый левый узел m, правого поддерева n->right;
+                        var mostLeft = root.RightChild;
+                        while (mostLeft.LeftChild != null)
+                            mostLeft = mostLeft.LeftChild;
+                        //Скопируем данные (кроме ссылок на дочерние элементы) из m в n
+                        root.Key = mostLeft.Key;
+                        root.Value = mostLeft.Value;
+                        //удалим узел m.
+                        mostLeft.Parent.LeftChild = null;
+                    }
+                }
+            }
+        }
         //https://learnc.info/adt/binary_tree_traversal.html вывод деревьев
 
         /// <summary>
@@ -375,12 +494,12 @@ namespace Lesson1.Trees
         public void PrintDepth()
         {
         }
-
         /// <summary>
         /// Сбалансировать дерево *
         /// </summary>
         public void Balance()
         {
+
         }
 
 
