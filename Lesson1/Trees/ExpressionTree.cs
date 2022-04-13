@@ -30,8 +30,8 @@ namespace Lesson1.Trees
                 Calc(root.LeftChild);
             if (IsOper(root.RightChild.Value))
                 Calc(root.RightChild);
-            root.Value = Convert.ToString(Calc(root.Value, Convert.ToDouble(root.RightChild.Value),
-                Convert.ToDouble(root.LeftChild.Value)));
+            root.Value = Convert.ToString(Calc(root.Value, Convert.ToDouble(root.LeftChild.Value),
+                Convert.ToDouble(root.RightChild.Value)));
             root.LeftChild = null;
             root.RightChild = null;
         }
