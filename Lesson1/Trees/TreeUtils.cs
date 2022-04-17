@@ -8,6 +8,10 @@ namespace Lesson1.Trees
 {
     public static class TreeUtils<T>
     {
+        /// <summary>
+        /// Обход дерева вроде
+        /// </summary>
+        /// <param name="root"></param>
         public static void BreadthFirstSearch(TreeNode<T> root)
         {
             List<TreeNode<T>> toVist = new List<TreeNode<T>>();
@@ -21,6 +25,11 @@ namespace Lesson1.Trees
                 Console.WriteLine(current.Value.ToString());
             }
         }
+        /// <summary>
+        /// Поиск высоты в бинарном дереве (для авл тоже работает)
+        /// </summary>
+        /// <param name="root"></param>
+        /// <returns></returns>
         public static int GetHeight(BinaryTreeNode<T> root)
         {
             if (root == null)

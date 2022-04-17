@@ -56,7 +56,7 @@ namespace Lesson1.Trees
                 LeftChild = new BinaryTreeNode<int>(1,3),
                 RightChild = n13
             };
-            var avl = new AVLTree(n7);
+            var avl = new AVLTree<int>(n7);
             avl.SmallLeftTurn(n7);
             //--------------------
 
@@ -75,10 +75,19 @@ namespace Lesson1.Trees
                 RightChild = new BinaryTreeNode<int>(1, 70),
                 LeftChild = n17
             };
-            var avl2 = new AVLTree(n50);
-            avl2.BigRightTurn(n50);
-            
-           
+            var avl2 = new AVLTree<int>(n50);
+            avl2.BigRightTurn(ref n50);
+
+            //int m = TreeUtils<int>.GetHeight(null);
+
+            //AVLTree<int> newAvl = new AVLTree<int>(new BinaryTreeNode<int>(1, 50));
+            //newAvl.Add(1, 17);
+            //newAvl.Add(1, 70);
+            //newAvl.Add(1, 12);
+            //newAvl.Add(1, 23);
+            //newAvl.Add(1, 19);
+            //newAvl.Add(1, 24);
+
         }
     }
 }
