@@ -18,53 +18,74 @@ namespace Lesson1.Trees
         /// Малый левый поворот
         /// </summary>
         /// <param name="r"></param>
-        public void SmallLeftTurn(BinaryTreeNode<T> r)
+        public BinaryTreeNode<T> SmallLeftTurn(BinaryTreeNode<T> r)
         {
+            BinaryTreeNode<T> tempPar = null;
+            if (root.Parent != null)
+            {
+                tempPar = root.Parent;
+            }
             if (r.RightChild == null)
                 throw new Exception("Малый левый поворот невозможен");
             var newRoot = r.RightChild;
+
             r.RightChild = r.RightChild.LeftChild;
+            r.RightChild.Parent = r;
+
             newRoot.LeftChild = r;
-            r = newRoot;
+            newRoot.Parent = tempPar;
+            return newRoot;
         }
         /// <summary>
         /// Малый правый поворот
         /// </summary>
         /// <param name="r"></param>
-        public void SmallRightTurn(BinaryTreeNode<T> r)
+        public BinaryTreeNode<T> SmallRightTurn(BinaryTreeNode<T> r)
         {
+            
             if (r.LeftChild == null)
                 throw new Exception("Малый левый поворот невозможен");
             var newRoot = r.LeftChild;
             r.LeftChild = r.LeftChild.RightChild;
             newRoot.RightChild = r;
-            r = newRoot;
+            return newRoot;
         }
         /// <summary>
         /// Большой правый поворот
         /// </summary>
         /// <param name="r"></param>
-        public void BigRightTurn (ref BinaryTreeNode<T> r)
+        public BinaryTreeNode<T> BigRightTurn (BinaryTreeNode<T> r)
         {
             var newRoot = r.LeftChild.RightChild;
+            
+
             r.LeftChild.RightChild = newRoot.LeftChild;
+            //newRoot.LeftChild.Parent = r.LeftChild;
+
             newRoot.LeftChild = r.LeftChild;
+            //r.LeftChild.Parent = newRoot;
+
             r.LeftChild = newRoot.RightChild;
+            //if (r.RightChild != null)
+            //newRoot.RightChild.Parent = r;
+
             newRoot.RightChild = r;
-            r = newRoot;
+            //r.Parent = newRoot;
+
+            return newRoot;
         }
         /// <summary>
         /// Большой левый поворот
         /// </summary>
         /// <param name="r"></param>
-        public void BigLeftTurn(BinaryTreeNode<T> r)
+        public BinaryTreeNode<T> BigLeftTurn(BinaryTreeNode<T> r)
         {
             var newRoot = r.RightChild.LeftChild;
             r.RightChild.LeftChild = newRoot.RightChild;
             newRoot.RightChild = r.RightChild;
             r.RightChild = newRoot.LeftChild;
             newRoot.LeftChild = r;
-            r = newRoot;
+            return newRoot;
         }
 
         public void Add(T value, int key)
@@ -106,25 +127,26 @@ namespace Lesson1.Trees
                 }
             }
             #endregion
-
-            while (rootCopy != null) //Проходимся до вершины и проверяем на сбалансированность
+            
+            while (rootCopy != null ) //Проходимся до вершины и проверяем на сбалансированность
             {
 
                 //левое вращение
                 if (TreeUtils<T>.GetHeight(rootCopy.RightChild) - TreeUtils<T>.GetHeight(rootCopy.LeftChild) >= 2)
                 {
                     if (TreeUtils<T>.GetHeight(rootCopy.RightChild.RightChild) - TreeUtils<T>.GetHeight(rootCopy.RightChild.LeftChild) >= 0)
-                        SmallLeftTurn(rootCopy);
-                    else BigLeftTurn(rootCopy);
+                        rootCopy = SmallLeftTurn(rootCopy);
+                    else rootCopy=BigLeftTurn(rootCopy);
+                    break;
                 }
                 //правое вращение
                 else
                 if (TreeUtils<T>.GetHeight(rootCopy.LeftChild) - TreeUtils<T>.GetHeight(rootCopy.RightChild) >= 2)
                 {
                     if (TreeUtils<T>.GetHeight(rootCopy.LeftChild.LeftChild) - TreeUtils<T>.GetHeight(rootCopy.LeftChild.RightChild) >= 0)
-                        SmallRightTurn(rootCopy);
-                    else BigRightTurn(ref rootCopy);
-
+                        rootCopy = SmallRightTurn(rootCopy);
+                    else rootCopy = BigRightTurn(rootCopy);
+                    break;
                 }
 
                 rootCopy = rootCopy.Parent;
