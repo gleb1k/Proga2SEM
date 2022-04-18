@@ -2,6 +2,10 @@
 using Lesson1.CustomList;
 using Lesson1.LinQ;
 using Lesson1.Trees;
+using Lesson1.DelegateEvent;
+using Lesson1.EventExample;
+using Lesson1.EventExample.CustomExample2;
+using Lesson1.EventExample.GoodExample;
 
 
 namespace Lesson1
@@ -27,6 +31,16 @@ namespace Lesson1
             //LinkTaskRunner.Run();
 
             TreeRunner.Run();
+
+            DelegateRunner dr = new DelegateRunner();
+            dr.Run();
+
+            var ceRun = new CERunner();
+            ceRun.Run();
+
+            var geRun = new GoodExampleRunner();
+            geRun.Run();
+
         }
     }
 }
