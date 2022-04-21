@@ -76,7 +76,7 @@ namespace Lesson1.Trees
                 LeftChild = n17
             };
             var avl2 = new AVLTree<int>(n50);
-            avl2.BigRightTurn(ref n50);
+            n50 = avl2.BigRightTurn(n50);
 
             int m = TreeUtils<int>.GetHeight(null);
 

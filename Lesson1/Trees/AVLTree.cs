@@ -20,12 +20,21 @@ namespace Lesson1.Trees
         /// <param name="r"></param>
         public void SmallLeftTurn(ref BinaryTreeNode<T> r)
         {
+            BinaryTreeNode<T> tempPar = null;
+            if (root.Parent != null)
+            {
+                tempPar = root.Parent;
+            }
             if (r.RightChild == null)
                 throw new Exception("Малый левый поворот невозможен");
             var newRoot = r.RightChild;
+
             r.RightChild = r.RightChild.LeftChild;
+            r.RightChild.Parent = r;
+
             newRoot.LeftChild = r;
-            r = newRoot;
+            newRoot.Parent = tempPar;
+            return newRoot;
         }
 
         private BinaryTreeNode<T> SmallLeftTurnCore(BinaryTreeNode<T> r)
@@ -47,25 +56,37 @@ namespace Lesson1.Trees
         /// <param name="r"></param>
         public void SmallRightTurn(ref BinaryTreeNode<T> r)
         {
+            
             if (r.LeftChild == null)
                 throw new Exception("Малый левый поворот невозможен");
             var newRoot = r.LeftChild;
             r.LeftChild = r.LeftChild.RightChild;
             newRoot.RightChild = r;
-            r = newRoot;
+            return newRoot;
         }
         /// <summary>
         /// Большой правый поворот
         /// </summary>
         /// <param name="r"></param>
-        public void BigRightTurn (ref BinaryTreeNode<T> r)
+        public BinaryTreeNode<T> BigRightTurn (BinaryTreeNode<T> r)
         {
             var newRoot = r.LeftChild.RightChild;
+            
+
             r.LeftChild.RightChild = newRoot.LeftChild;
+            //newRoot.LeftChild.Parent = r.LeftChild;
+
             newRoot.LeftChild = r.LeftChild;
+            //r.LeftChild.Parent = newRoot;
+
             r.LeftChild = newRoot.RightChild;
+            //if (r.RightChild != null)
+            //newRoot.RightChild.Parent = r;
+
             newRoot.RightChild = r;
-            r = newRoot;
+            //r.Parent = newRoot;
+
+            return newRoot;
         }
         /// <summary>
         /// Большой левый поворот
@@ -78,7 +99,7 @@ namespace Lesson1.Trees
             newRoot.RightChild = r.RightChild;
             r.RightChild = newRoot.LeftChild;
             newRoot.LeftChild = r;
-            r = newRoot;
+            return newRoot;
         }
 
         public void Add(T value, int key)
@@ -120,8 +141,8 @@ namespace Lesson1.Trees
                 }
             }
             #endregion
-
-            while (rootCopy != null) //Проходимся до вершины и проверяем на сбалансированность
+            
+            while (rootCopy != null ) //Проходимся до вершины и проверяем на сбалансированность
             {
                 var temppar = rootCopy.Parent;
                 //левое вращение
