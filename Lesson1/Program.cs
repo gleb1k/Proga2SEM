@@ -32,14 +32,14 @@ namespace Lesson1
 
             TreeRunner.Run();
 
-            DelegateRunner dr = new DelegateRunner();
-            dr.Run();
+            //DelegateRunner dr = new DelegateRunner();
+            //dr.Run();
 
-            var ceRun = new CERunner();
-            ceRun.Run();
+            //var ceRun = new CERunner();
+            //ceRun.Run();
 
-            var geRun = new GoodExampleRunner();
-            geRun.Run();
+            //var geRun = new GoodExampleRunner();
+            //geRun.Run();
 
         }
     }

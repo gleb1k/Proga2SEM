@@ -18,7 +18,7 @@ namespace Lesson1.Trees
         /// Малый левый поворот
         /// </summary>
         /// <param name="r"></param>
-        public void SmallLeftTurn(BinaryTreeNode<T> r)
+        public void SmallLeftTurn(ref BinaryTreeNode<T> r)
         {
             if (r.RightChild == null)
                 throw new Exception("Малый левый поворот невозможен");
@@ -27,11 +27,25 @@ namespace Lesson1.Trees
             newRoot.LeftChild = r;
             r = newRoot;
         }
+
+        private BinaryTreeNode<T> SmallLeftTurnCore(BinaryTreeNode<T> r)
+        {
+            if (r.RightChild == null)
+                throw new Exception("Малый левый поворот невозможен");
+            var newRoot = r.RightChild;
+            r.RightChild = r.RightChild.LeftChild;
+            newRoot.LeftChild = r;
+            return newRoot;
+        }
+        public void SmallLeftTurn2(ref BinaryTreeNode<T> r)
+        {
+            r = SmallLeftTurnCore(r);
+        }
         /// <summary>
         /// Малый правый поворот
         /// </summary>
         /// <param name="r"></param>
-        public void SmallRightTurn(BinaryTreeNode<T> r)
+        public void SmallRightTurn(ref BinaryTreeNode<T> r)
         {
             if (r.LeftChild == null)
                 throw new Exception("Малый левый поворот невозможен");
@@ -57,7 +71,7 @@ namespace Lesson1.Trees
         /// Большой левый поворот
         /// </summary>
         /// <param name="r"></param>
-        public void BigLeftTurn(BinaryTreeNode<T> r)
+        public void BigLeftTurn(ref BinaryTreeNode<T> r)
         {
             var newRoot = r.RightChild.LeftChild;
             r.RightChild.LeftChild = newRoot.RightChild;
@@ -109,24 +123,27 @@ namespace Lesson1.Trees
 
             while (rootCopy != null) //Проходимся до вершины и проверяем на сбалансированность
             {
-
+                var temppar = rootCopy.Parent;
                 //левое вращение
                 if (TreeUtils<T>.GetHeight(rootCopy.RightChild) - TreeUtils<T>.GetHeight(rootCopy.LeftChild) >= 2)
                 {
                     if (TreeUtils<T>.GetHeight(rootCopy.RightChild.RightChild) - TreeUtils<T>.GetHeight(rootCopy.RightChild.LeftChild) >= 0)
-                        SmallLeftTurn(rootCopy);
-                    else BigLeftTurn(rootCopy);
+                        SmallLeftTurn(ref rootCopy);
+                    else BigLeftTurn(ref rootCopy);
                 }
                 //правое вращение
                 else
                 if (TreeUtils<T>.GetHeight(rootCopy.LeftChild) - TreeUtils<T>.GetHeight(rootCopy.RightChild) >= 2)
                 {
                     if (TreeUtils<T>.GetHeight(rootCopy.LeftChild.LeftChild) - TreeUtils<T>.GetHeight(rootCopy.LeftChild.RightChild) >= 0)
-                        SmallRightTurn(rootCopy);
+                        SmallRightTurn(ref rootCopy);
                     else BigRightTurn(ref rootCopy);
 
                 }
-
+                if (temppar == null)
+                    root = rootCopy;
+                //todo else
+                rootCopy.Parent = temppar;
                 rootCopy = rootCopy.Parent;
             }
 
