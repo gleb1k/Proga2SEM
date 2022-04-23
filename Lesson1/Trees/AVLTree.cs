@@ -170,6 +170,7 @@ namespace Lesson1.Trees
             
             while (rootCopy != null ) //Проходимся до вершины и проверяем на сбалансированность
             {
+                //Временный родитель
                 var temppar = rootCopy.Parent;
                 //Проверка левая или правая вершина. Чтоб потом сделать ссылку для родителя(temppar)
                 bool isRightChild =false;
@@ -177,6 +178,7 @@ namespace Lesson1.Trees
                 {
                     isRightChild = true;
                 }
+                //Был поворот или нет
                 bool isTurned = false;
                 //левое вращение
                 if (TreeUtils<T>.GetHeight(rootCopy.RightChild) - TreeUtils<T>.GetHeight(rootCopy.LeftChild) >= 2)
@@ -195,6 +197,7 @@ namespace Lesson1.Trees
                     else rootCopy = BigRightTurn( rootCopy);
                     isTurned = true;
                 }
+                //Если родителя нет, то проверка завершена
                 if (temppar == null)
                 {
                     root = rootCopy;
@@ -202,15 +205,18 @@ namespace Lesson1.Trees
                 }
                 else
                 {
+                    //Меняем родителя
                     rootCopy.Parent = temppar;
+                    //Если был поворот то меняем у родителя ссылку на дочерний класс 
                     if (isRightChild && isTurned )
                         temppar.RightChild = rootCopy;
                     else if(isTurned)
                         temppar.LeftChild = rootCopy;
+                    //Поднимаемся по родителю
                     rootCopy = rootCopy.Parent;
                 }
             }
-
+            //Присваиваем полученное дерево к начальному корню
             root = rootCopy;
         }
         
