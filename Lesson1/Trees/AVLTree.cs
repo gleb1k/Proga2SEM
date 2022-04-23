@@ -213,38 +213,6 @@ namespace Lesson1.Trees
 
             root = rootCopy;
         }
-        public int Balance(BinaryTreeNode<T> node)
-        {
-            if (node == null)
-                return 0;
-            return TreeUtils<T>.GetHeight(node.LeftChild) - TreeUtils<T>.GetHeight(node.RightChild);
-        }
-
-
-        public void Add2(T value, int key)
-        {
-            root = add(root, key, value);
-        }
-        private BinaryTreeNode<T> add(BinaryTreeNode<T> node, int key, T value)
-        {
-            if (node == null)
-                return new BinaryTreeNode<T>(value, key);
-            if (key < node.Key)
-                node.LeftChild = add(node.LeftChild, key, value);
-            else if (key > node.Key)
-                node.RightChild = add(node.RightChild, key, value);
-            else
-                return node;
-            int balance = Balance(node);
-            if (balance > 1 && key < node.LeftChild.Key)
-                return SmallRightTurn(node);
-            if (balance < -1 && key > node.RightChild.Key)
-                return SmallLeftTurn(node);
-            if (balance > 1 && key > node.LeftChild.Key)
-                return BigRightTurn(node);
-            if (balance < -1 && key < node.RightChild.Key)
-                return BigLeftTurn(node);
-            return node;
-        }
+        
     }
 }
