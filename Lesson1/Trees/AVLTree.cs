@@ -203,12 +203,11 @@ namespace Lesson1.Trees
                 else
                 {
                     rootCopy.Parent = temppar;
-                    rootCopy = rootCopy.Parent;
                     if (isRightChild && isTurned )
                         temppar.RightChild = rootCopy;
-                    else
+                    else if(isTurned)
                         temppar.LeftChild = rootCopy;
-
+                    rootCopy = rootCopy.Parent;
                 }
             }
 

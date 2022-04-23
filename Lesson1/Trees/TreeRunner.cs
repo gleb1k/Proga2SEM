@@ -93,7 +93,7 @@ namespace Lesson1.Trees
             newAvl.Add(1, 101);
             newAvl.Add(1, 102);
             newAvl.Add(1, 103);
-
+            //РАБОТАЕТ. НАКОНЕЦ-ТО!!
 
         }
     }
