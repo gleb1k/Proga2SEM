@@ -18,8 +18,7 @@ namespace Lesson1.EventExample.GoodExample
         /// <summary>
         /// Найти замену 
         /// </summary>
-        protected void FindReplacement(object w,
-            GoVacationEventArgs param)
+        protected void FindReplacement(object w, GoVacationEventArgs param)
         {
             if (w is Worker)
             {

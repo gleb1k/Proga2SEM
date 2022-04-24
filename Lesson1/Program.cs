@@ -6,6 +6,7 @@ using Lesson1.DelegateEvent;
 using Lesson1.EventExample;
 using Lesson1.EventExample.CustomExample2;
 using Lesson1.EventExample.GoodExample;
+using Lesson1.EventTasks.PowerStation;
 
 
 namespace Lesson1
@@ -30,7 +31,7 @@ namespace Lesson1
             //LinqRunner.Run();
             //LinkTaskRunner.Run();
 
-            TreeRunner.Run();
+            //TreeRunner.Run();
 
             //DelegateRunner dr = new DelegateRunner();
             //dr.Run();
@@ -40,6 +41,8 @@ namespace Lesson1
 
             //var geRun = new GoodExampleRunner();
             //geRun.Run();
+
+            PowerStationRunner.Run();
 
         }
     }

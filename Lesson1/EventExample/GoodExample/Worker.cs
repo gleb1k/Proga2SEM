@@ -14,7 +14,7 @@ namespace Lesson1.EventExample.GoodExample
             Name = name;
         }
 
-        public EventHandler<GoVacationEventArgs> GoVacationDelegate;
+        public event EventHandler <GoVacationEventArgs> GoVacationDelegate;
         public void InitVacation(DateTime from, DateTime to, bool isAdm)
         {
             var param = new GoVacationEventArgs(from, to, isAdm);
