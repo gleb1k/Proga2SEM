@@ -7,7 +7,8 @@ using Lesson1.EventExample;
 using Lesson1.EventExample.CustomExample2;
 using Lesson1.EventExample.GoodExample;
 using Lesson1.EventTasks.PowerStation;
-
+using Lesson1.EventTasks.Mail;
+using Lesson1.Reflection;
 
 namespace Lesson1
 {
@@ -42,8 +43,9 @@ namespace Lesson1
             //var geRun = new GoodExampleRunner();
             //geRun.Run();
 
-            PowerStationRunner.Run();
+            //PowerStationRunner.Run();
 
+            ReflectionRunner.Run();
         }
     }
 }

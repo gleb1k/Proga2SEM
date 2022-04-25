@@ -24,7 +24,7 @@ namespace Lesson1.EventTasks.PowerStation
             Name = name;
             Amount = amount;
         }
-        protected void Work(object o)
+        protected void Work(object o,EventArgs args)
         {
             if (o is PowerStation)
             {
@@ -37,11 +37,11 @@ namespace Lesson1.EventTasks.PowerStation
         }
         public void Subscribe(PowerStation pw)
         {
-            pw.CheckTemperatureDelegate += Work;   
+            pw.FireEvent += Work;   
         }
         public void UnSubscribe(PowerStation pw)
         {
-            pw.CheckTemperatureDelegate -= Work;
+            pw.FireEvent -= Work;
         }
     }
 }

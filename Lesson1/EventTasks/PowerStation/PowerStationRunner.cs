@@ -18,7 +18,7 @@ namespace Lesson1.EventTasks.PowerStation
 
             ff.Subscribe(pw);
 
-            pw.CheckTemperature();
+            pw.Fire();
 
             
         }
