@@ -244,9 +244,7 @@ namespace Lesson1.Trees
                 if (rootCopy.Key == key)
                 {
                     return true;
-
                 }
-
                 if (key < rootCopy.Key)
                 {
                     if (rootCopy.LeftChild == null)
