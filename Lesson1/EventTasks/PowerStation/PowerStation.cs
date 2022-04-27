@@ -17,17 +17,19 @@ namespace Lesson1.EventTasks.PowerStation
             Temperature = temp;
         }
 
-        public Action<PowerStation> CheckTemperatureDelegate;
-        public void CheckTemperature()
+        public event EventHandler FireEvent;
+        public void Fire()
         {
             //int i = 0;
             while (true)
             {
-                //Timer timer = new Timer();
+                //Timer timer = new Timer(); как сделать таймер?
                 Thread.Sleep(1000);
                 Temperature = Temperature + 5;
-                if  (Temperature >= 120)
-                CheckTemperatureDelegate?.Invoke(this);
+                if (Temperature >= 120)
+                    if (FireEvent != null)
+                        FireEvent(this, EventArgs.Empty);
+                //i++;
                 
             }
             //Console.WriteLine("Cтанция нестабильна. Работа станции прекращается. :с");
