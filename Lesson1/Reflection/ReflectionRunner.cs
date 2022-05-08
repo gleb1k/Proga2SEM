@@ -17,7 +17,7 @@ namespace Lesson1.Reflection
             var i = 5;
             Type t3 = i.GetType();
 
-            Assembly assembly = Assembly.LoadFrom(@"C:\Users\Gleb\Desktop\Прога\glebik107-dz-5241bca481ef\2SEM\Proga2SEM\Lesson1\obj\Debug\net5.0\Lesson1.dll");
+            //Assembly assembly = Assembly.LoadFrom(@"C:\Users\Gleb\Desktop\Прога\glebik107-dz-5241bca481ef\2SEM\Proga2SEM\Lesson1\obj\Debug\net5.0\Lesson1.dll");
             
         }
     }

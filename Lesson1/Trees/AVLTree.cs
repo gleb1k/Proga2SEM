@@ -53,6 +53,7 @@ namespace Lesson1.Trees
             var newRoot = r.LeftChild;
 
             r.LeftChild = r.LeftChild.RightChild;
+            if (r.LeftChild != null)
             r.LeftChild.Parent = r;
 
             newRoot.RightChild = r;

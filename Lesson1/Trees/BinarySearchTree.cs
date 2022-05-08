@@ -9,6 +9,7 @@ namespace Lesson1.Trees
     public class BinarySearchTree<T>
     {
         private BinaryTreeNode<T> root;
+
         /// <summary>
         /// Добавление элемента в дерево по ключу
         /// </summary>
