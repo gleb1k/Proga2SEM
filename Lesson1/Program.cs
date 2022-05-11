@@ -32,7 +32,7 @@ namespace Lesson1
             //LinqRunner.Run();
             //LinkTaskRunner.Run();
 
-            //TreeRunner.Run();
+            TreeRunner.Run();
 
             //DelegateRunner dr = new DelegateRunner();
             //dr.Run();
@@ -45,7 +45,7 @@ namespace Lesson1
 
             //PowerStationRunner.Run();
 
-            ReflectionRunner.Run();
+            //ReflectionRunner.Run();
         }
     }
 }
