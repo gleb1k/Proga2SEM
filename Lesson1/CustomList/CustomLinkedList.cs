@@ -37,9 +37,20 @@ namespace Lesson1.CustomList
                 }
             }
         }
-        public void Add(T elem)
+        public void Add(T a)
         {
-            throw new NotImplementedException();
+            var newNode = new LinkedNode<T>(a);
+            if (head == null)
+            {
+                head = newNode;
+                return;
+            }
+            var headCopy = head;
+            while (headCopy.NextNode != null)
+            {
+                headCopy = headCopy.NextNode;
+            }
+            headCopy.NextNode = newNode;
         }
 
         public void AddRange(T[] elems)
@@ -178,7 +189,14 @@ namespace Lesson1.CustomList
 
         public int Size()
         {
-            throw new NotImplementedException();
+            int k = 1;
+            var headCopy = head;
+            while (headCopy.NextNode != null)
+            {
+                headCopy = headCopy.NextNode;
+                k++;
+            }
+            return k;
         }
         public override string ToString()
         {

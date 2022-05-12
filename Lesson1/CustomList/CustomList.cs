@@ -264,6 +264,8 @@ namespace Lesson1.CustomList
             Console.WriteLine("Элемент не найден!");
 
         }
+        //CustomCountList класс  - сумма элементов
+
         //Домашка 3 АИСД (нужны были связаенные списки, поэтому пишу тут)---
         public void DeleteSimilarElements()
         {
