@@ -277,7 +277,7 @@ namespace Lesson1.Trees
         /// <summary>
         /// удаление узла, в котором хранится значение
         /// </summary>
-        public void Remove(int key)
+        public void RemoveNORecursion(int key)
         {
             if (root == null)
             {
@@ -369,7 +369,7 @@ namespace Lesson1.Trees
         /// Удаление элемента
         /// </summary>
         /// <param name="value">удаляемое значение</param>
-        public void RemoveRecursion(int key)
+        public void Remove(int key)
         {
             if (root == null)
             {
