@@ -97,6 +97,8 @@ namespace Lesson1.CustomList
 
         public void DeleteHead()
         {
+            if (head == null)
+                throw new ArgumentException("Список пуст");
             if (head.NextNode == null)
             {
                 head = null;
@@ -105,6 +107,8 @@ namespace Lesson1.CustomList
         }
         public void DeleteTail()
         {
+            if (head == null)
+                throw new ArgumentException("Список пуст");
             if (head.NextNode == null)
             {
                 head = null;
@@ -121,8 +125,9 @@ namespace Lesson1.CustomList
         {
             if (index <= 0)
                 throw new Exception("Позиция должна быть больше единицы");
-
-            if (head == null || Size() < index)
+            if (head == null)
+                throw new ArgumentException("Список пуст");
+            if (Size() < index)
                 throw new Exception("Нет данной позиции в списке");
 
             if (index == 1)
@@ -259,6 +264,8 @@ namespace Lesson1.CustomList
             Console.WriteLine("Элемент не найден!");
 
         }
+        //CustomCountList класс  - сумма элементов
+
         //Домашка 3 АИСД (нужны были связаенные списки, поэтому пишу тут)---
         public void DeleteSimilarElements()
         {
