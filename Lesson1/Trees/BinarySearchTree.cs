@@ -54,6 +54,9 @@ namespace Lesson1.Trees
                 }
             }
         }
+        /// <summary>
+        /// Обход дерева в ширину (по уровням)
+        /// </summary>
         public void BreadthFirstSearch()
         {
             List<BinaryTreeNode<T>> toVist = new List<BinaryTreeNode<T>>();
