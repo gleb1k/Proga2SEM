@@ -102,7 +102,9 @@ namespace Lesson1.CustomList
             if (head.NextNode == null)
             {
                 head = null;
+                
             }
+            else
             head = head.NextNode;
         }
         public void DeleteTail()
@@ -112,6 +114,7 @@ namespace Lesson1.CustomList
             if (head.NextNode == null)
             {
                 head = null;
+                return;
             }
             var headcopy = head;
 
