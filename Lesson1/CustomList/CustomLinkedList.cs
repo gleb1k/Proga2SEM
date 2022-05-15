@@ -62,24 +62,45 @@ namespace Lesson1.CustomList
             if (head == null)
             {
                 head = new LinkedNode<T>(elems[0]);
-                var headCopy = head;
-                for (int i = 1; i < elems.Length; i++)
+            }
+            var headCopy = head;
+            if (head != null)
+            {
+                while (headCopy.NextNode != null)
                 {
-                    headCopy.NextNode = new LinkedNode<T>(elems[i]);
                     headCopy = headCopy.NextNode;
                 }
-                return;
-            }
-            var headCopy2 = head;
-            while (headCopy2.NextNode != null)
-            {
-                headCopy2 = headCopy2.NextNode;
             }
             for (int i = 0; i < elems.Length; i++)
             {
-                headCopy2.NextNode = new LinkedNode<T>(elems[i]);
-                headCopy2 = headCopy2.NextNode;
+                headCopy.NextNode = new LinkedNode<T>(elems[i]);
+                headCopy = headCopy.NextNode;
             }
+            //if (elems == null || elems.Length == 0)
+            //{
+            //    return;
+            //}
+            //if (head == null)
+            //{
+            //    head = new LinkedNode<T>(elems[0]);
+            //    var headCopy = head;
+            //    for (int i = 1; i < elems.Length; i++)
+            //    {
+            //        headCopy.NextNode = new LinkedNode<T>(elems[i]);
+            //        headCopy = headCopy.NextNode;
+            //    }
+            //    return;
+            //}
+            //var headCopy2 = head;
+            //while (headCopy2.NextNode != null)
+            //{
+            //    headCopy2 = headCopy2.NextNode;
+            //}
+            //for (int i = 0; i < elems.Length; i++)
+            //{
+            //    headCopy2.NextNode = new LinkedNode<T>(elems[i]);
+            //    headCopy2 = headCopy2.NextNode;
+            //}
         }
 
         public void Clear()
