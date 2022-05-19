@@ -54,6 +54,9 @@ namespace Lesson1.Trees
                 }
             }
         }
+        /// <summary>
+        /// Обход дерева в ширину (по уровням)
+        /// </summary>
         public void BreadthFirstSearch()
         {
             List<BinaryTreeNode<T>> toVist = new List<BinaryTreeNode<T>>();
@@ -277,7 +280,7 @@ namespace Lesson1.Trees
         /// <summary>
         /// удаление узла, в котором хранится значение
         /// </summary>
-        public void Remove(int key)
+        public void RemoveNORecursion(int key)
         {
             if (root == null)
             {
@@ -369,7 +372,7 @@ namespace Lesson1.Trees
         /// Удаление элемента
         /// </summary>
         /// <param name="value">удаляемое значение</param>
-        public void RemoveRecursion(int key)
+        public void Remove(int key)
         {
             if (root == null)
             {

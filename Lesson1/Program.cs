@@ -16,7 +16,7 @@ namespace Lesson1
     {
         static void Main(string[] args)
         {
-            ////CustomListRunner.Run();
+            CustomListRunner.Run();
 
             //Console.WriteLine("-----------------------------------------------");
 
@@ -32,7 +32,7 @@ namespace Lesson1
             //LinqRunner.Run();
             //LinkTaskRunner.Run();
 
-            TreeRunner.Run();
+            //TreeRunner.Run();
 
             //DelegateRunner dr = new DelegateRunner();
             //dr.Run();
