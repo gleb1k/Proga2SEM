@@ -292,6 +292,8 @@ namespace Lesson1.CustomList
         }
         public void SwapTwoElements()
         {
+            if (head == null || head.NextNode == null || head.NextNode.NextNode == null)
+                throw new Exception("Swap is can't be realized :с");
             //финалочка
             var tempNode = head.NextNode.NextNode;
             var headCopy = head;
