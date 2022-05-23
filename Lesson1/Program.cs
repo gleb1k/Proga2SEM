@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using Lesson1.CustomList;
 using Lesson1.LinQ;
 using Lesson1.Trees;
@@ -9,6 +10,7 @@ using Lesson1.EventExample.GoodExample;
 using Lesson1.EventTasks.PowerStation;
 using Lesson1.EventTasks.Mail;
 using Lesson1.Reflection;
+using Lesson1.Threads;
 
 namespace Lesson1
 {
@@ -46,6 +48,9 @@ namespace Lesson1
             //PowerStationRunner.Run();
 
             //ReflectionRunner.Run();
+
+            FibonachiThread.Run();
+
         }
     }
 }
