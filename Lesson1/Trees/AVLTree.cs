@@ -128,7 +128,6 @@ namespace Lesson1.Trees
 
             return newRoot;
         }
-
         public void Add(T value, int key)
         {
             var rootCopy = root;
